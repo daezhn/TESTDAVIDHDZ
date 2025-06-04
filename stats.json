@@ -1,0 +1,6 @@
+{
+  "players": [
+    {"name": "Juan Perez", "AVG": 0.305, "CP": 45, "HR": 12},
+    {"name": "Luis Gomez", "AVG": 0.289, "CP": 37, "HR": 8}
+  ]
+}
