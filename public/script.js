@@ -1,9 +1,16 @@
 const socket = io();
-const statsPre = document.getElementById('stats');
+const tableBody = document.querySelector('#statsTable tbody');
 const downloadBtn = document.getElementById('download');
 
 socket.on('statsUpdated', data => {
-  statsPre.textContent = JSON.stringify(data, null, 2);
+  tableBody.innerHTML = '';
+  if (data.players) {
+    data.players.forEach(p => {
+      const row = document.createElement('tr');
+      row.innerHTML = `<td>${p.name}</td><td>${p.AVG}</td><td>${p.CP}</td><td>${p.HR}</td>`;
+      tableBody.appendChild(row);
+    });
+  }
 });
 
 downloadBtn.addEventListener('click', () => {
